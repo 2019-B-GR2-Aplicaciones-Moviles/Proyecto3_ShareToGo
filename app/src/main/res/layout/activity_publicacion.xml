@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="#8BC34A"
+        android:onClick="onClickButtonPublicacion"
         android:text="@string/publicar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,8 +62,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="409dp"
-        android:layout_height="356dp"
+        android:layout_width="392dp"
+        android:layout_height="237dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -74,7 +75,7 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="359dp" />
+                android:layout_height="230dp" />
         </LinearLayout>
     </ScrollView>
 
