@@ -19,60 +19,70 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto A" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto B" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto C" />
 
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto D" />
 
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto E" />
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto F" />
 
         <RadioButton
             android:id="@+id/radioButton7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto G" />
 
         <RadioButton
             android:id="@+id/radioButton8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto H" />
 
         <RadioButton
             android:id="@+id/radioButton9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto I" />
 
         <RadioButton
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#8BC34A"
             android:text="contacto J" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
