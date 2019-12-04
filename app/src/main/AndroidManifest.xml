@@ -9,13 +9,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SeleccionSectoresPublicar"></activity>
-        <activity android:name=".Publicacion" />
-        <activity android:name=".accionEjecutada" />
-        <activity android:name=".Contactos" />
-        <activity android:name=".SeleccionRuta" />
-        <activity android:name=".seleccionSectores" />
-        <activity android:name=".pantallaPrincipal" />
+        <activity android:name=".SeleccionSectoresPublicar"
+            android:parentActivityName=".pantallaPrincipal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pantallaPrincipal" />
+        </activity>
+        <activity android:name=".Publicacion"
+            android:parentActivityName=".SeleccionSectoresPublicar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SeleccionSectoresPublicar" />
+        </activity>
+        <activity android:name=".accionEjecutada"
+            android:parentActivityName=".Contactos">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Contactos" />
+        </activity>
+        <activity android:name=".Contactos"
+            android:parentActivityName=".SeleccionRuta">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SeleccionRuta" />
+        </activity>
+        <activity android:name=".SeleccionRuta"
+            android:parentActivityName=".seleccionSectores">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".seleccionSectores" /></activity>
+        <activity android:name=".seleccionSectores"
+            android:parentActivityName=".pantallaPrincipal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pantallaPrincipal" />
+        </activity>
+        <activity android:name=".pantallaPrincipal"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
