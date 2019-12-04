@@ -6,4 +6,21 @@
     <string name="compartir">Compartir</string>
     <string name="map">Map</string>
     <string name="infoList">Info List</string>
+    <string name="norte">Norte</string>
+    <string name="centro">Centro</string>
+    <string name="sur">Sur</string>
+    <string name="salida">Sector salida</string>
+    <string name="llegada">Sector llegada</string>
+    <string name="continuar">Continuar</string>
+    <string name="rutas">Rutas disponibles</string>
+    <string name="carolina">la Carolina</string>
+    <string name="sanCarlos">San Carlos</string>
+    <string name="rutaA">Ruta A</string>
+    <string name="rutaB">Ruta B</string>
+    <string name="rutaC">Ruta C</string>
+    <string name="rutaD">Ruta D</string>
+    <string name="accionEjecutada">Accion ejecutada correctamente!</string>
+    <string name="calles">Calles</string>
+    <string name="horario">Horario</string>
+    <string name="publicar">Publicar</string>
 </resources>
