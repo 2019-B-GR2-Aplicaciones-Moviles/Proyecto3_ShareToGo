@@ -23,4 +23,7 @@
     <string name="calles">Calles</string>
     <string name="horario">Horario</string>
     <string name="publicar">Publicar</string>
+    <string name="facebook_app_id">535477337302736</string>
+    <string name="fb_login_protocol_scheme">fb535477337302736</string>
+
 </resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "709511545074",
+    "firebase_url": "https://sharetogo-b5180.firebaseio.com",
+    "project_id": "sharetogo-b5180",
+    "storage_bucket": "sharetogo-b5180.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709511545074:android:075f5a32b1e85de42e506b",
+        "android_client_info": {
+          "package_name": "com.example.sharetogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709511545074-48ga11p6i5jf6dpb2506htl57mokbv5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcCsM9DLKScKfMJXZ53fpIbM6pQEEl3WI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709511545074-48ga11p6i5jf6dpb2506htl57mokbv5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
