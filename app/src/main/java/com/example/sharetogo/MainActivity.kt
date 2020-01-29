@@ -94,7 +94,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickButtonSignIn( view: View ) {
-        var intent = Intent(this, pantallaPrincipal::class.java)
+        var intent = Intent(this, signIn::class.java)
+        startActivity(intent)
+    }
+
+    fun onClickButtonSignUp( view: View ) {
+        var intent = Intent(this, signUp::class.java)
         startActivity(intent)
     }
     companion object {

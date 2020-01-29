@@ -25,5 +25,9 @@
     <string name="publicar">Publicar</string>
     <string name="facebook_app_id">535477337302736</string>
     <string name="fb_login_protocol_scheme">fb535477337302736</string>
+    <string name="email">Ingrese su email</string>
+    <string name="password">Ingrese su contraseña</string>
+    <string name="Nombre">Ingrese su nombre</string>
+    <string name="telefono">Ingrese su numero celular</string>
 
 </resources>
