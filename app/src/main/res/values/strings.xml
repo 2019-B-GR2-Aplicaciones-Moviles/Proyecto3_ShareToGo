@@ -29,5 +29,8 @@
     <string name="password">Ingrese su contraseña</string>
     <string name="Nombre">Ingrese su nombre</string>
     <string name="telefono">Ingrese su numero celular</string>
+    <string name="menu_item_home">Principal</string>
+    <string name="menu_item_account">Cuenta</string>
+    <string name="menu_item_logout">Cerrar Sesión</string>
 
 </resources>
