@@ -32,5 +32,6 @@
     <string name="menu_item_home">Principal</string>
     <string name="menu_item_account">Cuenta</string>
     <string name="menu_item_logout">Cerrar Sesión</string>
+    <string name="title_activity_mapa">Map</string>
 
 </resources>

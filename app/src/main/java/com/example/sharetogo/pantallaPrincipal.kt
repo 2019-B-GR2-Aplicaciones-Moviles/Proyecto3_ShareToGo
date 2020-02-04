@@ -58,4 +58,9 @@ class pantallaPrincipal : AppCompatActivity() {
         var intent = Intent(this, SeleccionSectoresPublicar::class.java)
         startActivity(intent)
     }
+
+    fun onClickButtonMap (view: View) {
+        val intent = Intent(this, Mapa::class.java)
+        startActivity(intent)
+    }
 }
