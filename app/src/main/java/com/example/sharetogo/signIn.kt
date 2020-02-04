@@ -41,6 +41,7 @@ class signIn : AppCompatActivity() {
     }
 
     fun onClickButtonSignIn( view: View) {
+
         val intent = Intent(this, pantallaPrincipal::class.java)
         startActivity(intent)
     }
