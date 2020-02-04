@@ -49,8 +49,6 @@ class signUp : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) { }
         })
 
-
-
         editTextEmail.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 when {
@@ -153,6 +151,9 @@ class signUp : AppCompatActivity() {
         val dialog: AlertDialog? = builder?.create()
         dialog?.show()
     }
+
+
+    //Verificacion de codigo y evaluacion pruebas
 
     private fun writeNewUser(userId: String, name: String, email: String, phone: String, password: String) {
         user = Usuarios(userId, name, password, email, "user", phone, "",true)
