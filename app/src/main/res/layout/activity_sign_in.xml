@@ -8,7 +8,7 @@
     tools:context=".signIn">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -24,7 +24,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -36,11 +36,11 @@
         android:textColorHint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -50,5 +50,5 @@
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

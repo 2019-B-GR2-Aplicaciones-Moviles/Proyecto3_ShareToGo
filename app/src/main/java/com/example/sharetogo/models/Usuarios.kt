@@ -7,6 +7,6 @@ class Usuarios(
     var correo: String,
     var rol: String,
     var telefono: String? = "",
-    var rutas: ArrayList<String>? = null,
+    var rutas: String? = "",
     var activo: Boolean
 )
