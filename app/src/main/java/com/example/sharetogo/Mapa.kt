@@ -45,7 +45,6 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButt
             mMap.setOnMyLocationButtonClickListener(this);
             mMap.setOnMyLocationClickListener(this);
         } else {
-            Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show()
             ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),0)
         }

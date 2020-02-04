@@ -163,6 +163,7 @@ class signUp : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val intent = Intent(this, signIn::class.java)
                     startActivity(intent)
+                    auth.signOut() // se cierra sesion para poder iniciar en signinView
                 } else {
                     showDialogMessage(task.exception.toString(), "Usuario no registrado!")
                 }
