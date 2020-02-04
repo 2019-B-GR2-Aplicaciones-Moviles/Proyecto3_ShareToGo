@@ -173,7 +173,7 @@ class signUp : AppCompatActivity() {
                 task ->
                 if (task.isSuccessful) {
                     currentUser = auth.currentUser
-                    writeNewUser(currentUser!!.uid, editTextEmail.text.toString(),
+                    writeNewUser(currentUser!!.uid, editTextName.text.toString(),
                         currentUser!!.email.toString(), editTextPhone.text.toString(),
                         password)
                 } else {
