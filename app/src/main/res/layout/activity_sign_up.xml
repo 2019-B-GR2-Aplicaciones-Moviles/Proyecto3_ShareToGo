@@ -8,7 +8,7 @@
     tools:context=".signUp">
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

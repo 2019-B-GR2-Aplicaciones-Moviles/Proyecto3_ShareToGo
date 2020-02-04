@@ -34,14 +34,14 @@ class signUp : AppCompatActivity() {
         currentUser = auth.currentUser
         database = FirebaseDatabase.getInstance().reference
 
-        editTextEmail.addTextChangedListener(object : TextWatcher {
+        editTextName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 when {
                     s.isEmpty() -> {
-                        editTextEmail.error = "Debe ingresar un nombre primero\n"
+                        editTextName.error = "Debe ingresar un nombre primero\n"
                     }
                     s.length < 5 -> {
-                        editTextEmail.error = "El nombre debe contener al menos 5 caracteres\n"
+                        editTextName.error = "El nombre debe contener al menos 5 caracteres\n"
                     }
                 }
             }
@@ -122,12 +122,12 @@ class signUp : AppCompatActivity() {
     private fun validateData(): Boolean {
         var result = false
 
-        if (editTextEmail.text.isEmpty() || editTextEmail.text.isEmpty() ||
+        if (editTextName.text.isEmpty() || editTextEmail.text.isEmpty() ||
                 editTextPhone.text.isEmpty() || editTextPassword.text.isEmpty()) {
             msgError = "Hay campos vacios"
         }
 
-        msgError += if (editTextEmail.error.isNullOrEmpty()) "" else editTextEmail.error
+        msgError += if (editTextName.error.isNullOrEmpty()) "" else editTextName.error
         msgError += if (editTextEmail.error.isNullOrEmpty()) "" else editTextEmail.error
         msgError += if (editTextPhone.error.isNullOrEmpty()) "" else editTextPhone.error
         msgError += if (editTextPassword.error.isNullOrEmpty()) "" else editTextPassword.error
