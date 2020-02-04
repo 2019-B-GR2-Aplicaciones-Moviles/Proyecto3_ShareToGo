@@ -51,8 +51,6 @@ class signUp : AppCompatActivity() {
 
 
 
-//        codigorevisado
-
         editTextEmail.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 when {
