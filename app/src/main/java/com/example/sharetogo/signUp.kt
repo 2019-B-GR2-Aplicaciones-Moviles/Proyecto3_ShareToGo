@@ -49,6 +49,8 @@ class signUp : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) { }
         })
 
+
+
         editTextEmail.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
                 when {
