@@ -47,7 +47,7 @@ class signIn : AppCompatActivity() {
     }
 
     private fun writeNewUser(userId: String, name: String, email: String, phone: String, password: String) {
-        user = Usuarios(userId, name, password, email, "user", phone, "",true)
+        user = Usuarios(userId, name, password, email, "user", phone,true)
         databaseRef.child("usuarios").child(userId).setValue(user)
             .addOnCompleteListener(this) {
                     task ->
