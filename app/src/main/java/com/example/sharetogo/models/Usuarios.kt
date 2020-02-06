@@ -7,6 +7,5 @@ class Usuarios(
     var correo: String,
     var rol: String,
     var telefono: String? = "",
-    var rutas: String? = "",
     var activo: Boolean
 )
