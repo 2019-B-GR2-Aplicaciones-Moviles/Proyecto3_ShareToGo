@@ -65,6 +65,7 @@
         android:layout_height="38dp"
         android:layout_marginEnd="16dp"
         android:background="@color/colorPrimary"
+        android:onClick="anadirCalles"
         android:text="@string/btnAnadirCalles"
         app:layout_constraintBottom_toBottomOf="@+id/editTextCalles"
         app:layout_constraintEnd_toEndOf="parent"
