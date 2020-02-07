@@ -33,5 +33,7 @@
     <string name="menu_item_account">Cuenta</string>
     <string name="menu_item_logout">Cerrar Sesión</string>
     <string name="title_activity_mapa">Map</string>
+    <string name="textViewInformacion">Por Favor Ingrese el nombre de las calles en orden que se realizará el viaje </string>
+    <string name="btnAnadirCalles">+</string>
 
 </resources>
