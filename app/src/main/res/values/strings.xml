@@ -19,7 +19,7 @@
     <string name="rutaB">Ruta B</string>
     <string name="rutaC">Ruta C</string>
     <string name="rutaD">Ruta D</string>
-    <string name="accionEjecutada">Accion ejecutada correctamente!</string>
+    <string name="accionEjecutada">Información del conductor</string>
     <string name="calles">Calles</string>
     <string name="horario">Horario</string>
     <string name="publicar">Publicar</string>
@@ -33,7 +33,8 @@
     <string name="menu_item_account">Cuenta</string>
     <string name="menu_item_logout">Cerrar Sesión</string>
     <string name="title_activity_mapa">Map</string>
-    <string name="textViewInformacion">Por Favor Ingrese el nombre de las calles en orden que se realizará el viaje </string>
-    <string name="btnAnadirCalles">+</string>
+
+    <string name="info_driver_phone">Telefono: </string>
+
 
 </resources>
