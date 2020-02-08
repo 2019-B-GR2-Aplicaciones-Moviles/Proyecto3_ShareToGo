@@ -1,12 +1,8 @@
 package com.example.sharetogo.models
 
-import java.util.*
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
-import com.google.type.Date
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.LinkedHashMap
 
 @IgnoreExtraProperties
 data class Rutas(
