@@ -25,26 +25,35 @@ class Publicacion : AppCompatActivity() {
         startActivity(intent)
     }
 
-    lateinit var list: ListView
     lateinit var items: ArrayList<String>
+    lateinit var  adp: ArrayAdapter<String>
+    lateinit var list: ListView
+    lateinit var  et1 :EditText
 
-    fun anadir(view: View)
+    fun onClickButtonAnadirCalles(view: View)
     {
-        val txtEditText = findViewById<EditText>(R.id.editTextCalles)
-        val btnAnadirCalles = findViewById<Button>(R.id.btnAnadirCalles)
-        list = findViewById(R.id.list)
+
         items=ArrayList<String>()
-        val adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
+        adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
+        list = findViewById(R.id.list)
         list.adapter=adp
 
+        et1 = findViewById<EditText>(R.id.editTextCalles)
+
         btnAnadirCalles.setOnClickListener(View.OnClickListener {
-            val nombreCalles = editTextCalles.getText().toString()
+            val nombreCalles = et1.text.toString()
             if (nombreCalles.isEmpty()) {
                 Toast.makeText(this, "No ha ingresado ningun nombre de calle", Toast.LENGTH_SHORT).show()
             }else{
-                items.add(txtEditText.text.toString())
+                items.add(et1.text.toString())
+                adp.notifyDataSetChanged()
+                et1.setText("")
             }
         })
+    }
+
+    fun consultar(){
+
 
 
     }

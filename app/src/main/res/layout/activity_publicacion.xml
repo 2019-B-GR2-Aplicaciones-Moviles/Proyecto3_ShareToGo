@@ -65,7 +65,7 @@
         android:layout_height="38dp"
         android:layout_marginEnd="16dp"
         android:background="@color/colorPrimary"
-        android:onClick="anadir"
+        android:onClick="onClickButtonAnadirCalles"
         android:text="@string/btnAnadirCalles"
         app:layout_constraintBottom_toBottomOf="@+id/editTextCalles"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,14 +73,14 @@
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="392dp"
-        android:layout_height="398dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonPublicar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCalles" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCalles"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
