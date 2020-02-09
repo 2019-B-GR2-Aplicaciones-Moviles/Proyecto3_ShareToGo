@@ -65,10 +65,22 @@
         android:layout_height="38dp"
         android:layout_marginEnd="16dp"
         android:background="@color/colorPrimary"
-        android:onClick="anadirCalles"
+        android:onClick="anadir"
         android:text="@string/btnAnadirCalles"
         app:layout_constraintBottom_toBottomOf="@+id/editTextCalles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editTextCalles" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="392dp"
+        android:layout_height="398dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPublicar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCalles" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
