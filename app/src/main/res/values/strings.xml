@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ShareToGo</string>
+    <string name="sentidoSalida">Sentido de salida</string>
+    <string name="sentidoLlegada">Sentido de llegada</string>
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
     <string name="usar">Usar</string>
