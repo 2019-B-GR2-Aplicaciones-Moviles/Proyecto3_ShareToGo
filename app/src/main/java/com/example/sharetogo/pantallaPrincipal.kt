@@ -50,12 +50,12 @@ class pantallaPrincipal : AppCompatActivity() {
     }
 
     fun onClickButtonUsar ( view: View ) {
-        var intent = Intent( this, seleccionSectores::class.java)
+        var intent = Intent( this, SeleccionSectoresPublicar::class.java)
         startActivity(intent)
     }
 
     fun onClickButtonCompartir ( view: View ) {
-        var intent = Intent(this, SeleccionSectoresPublicar::class.java)
+        var intent = Intent(this, seleccionSectores::class.java)
         startActivity(intent)
     }
 
