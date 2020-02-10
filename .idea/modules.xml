@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GitHub-Proyecto3_ShareToGo-ShareToGo.iml" filepath="$PROJECT_DIR$/GitHub-Proyecto3_ShareToGo-ShareToGo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/GitHub-Proyecto3_ShareToGo-app.iml" filepath="$PROJECT_DIR$/app/GitHub-Proyecto3_ShareToGo-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/Proyecto3_ShareToGo-ShareToGo.iml" filepath="$PROJECT_DIR$/Proyecto3_ShareToGo-ShareToGo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/Proyecto3_ShareToGo-app.iml" filepath="$PROJECT_DIR$/app/Proyecto3_ShareToGo-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShareToGo.iml" filepath="$PROJECT_DIR$/ShareToGo.iml" />
