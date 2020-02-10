@@ -38,7 +38,7 @@
     <string name="info_driver_phone">Telefono: </string>
     <string name="btnAnadirCalles">+</string>
     <string name="textViewInformacion">Por favor ingrese  el nombre de las calles en orden que se realizará el viaje.</string>
-	<string name="hora">Seleccione la hora de inicio de la ruta</string>
+    <string name="hora">Seleccione la hora de inicio de la ruta</string>
     <string name="pasajeros">Ingrese el numero de pasajeros que puede llevar</string>
     <string name="sectorInicio">Ingrese el sector de salida</string>
     <string name="sectorFin">ingrese el sector de llegada</string>
@@ -47,4 +47,10 @@
     <string name="modelo">Ingrese el modelo</string>
     <string name="placa">Ingrese la placa</string>
     <string name="color">Ingrese el color</string>
+    <string name="txtSentidoSalida">Sentido Salida</string>
+    <string name="txtSentidoLlegada">Sentido de llegada</string>
+    <string name="txtHoraInicio">Hora de Inicio</string>
+    <string name="txtNumeroPasajeros">Numero de Pasajeros</string>
+    <string name="txtSectorSalida">Sector de salida</string>
+    <string name="txtSectorLlegada">Sector de Llegada</string>
 </resources>

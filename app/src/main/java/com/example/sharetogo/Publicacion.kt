@@ -19,6 +19,10 @@ class Publicacion : AppCompatActivity() {
     lateinit var  et1 :EditText
     var contId:Int=0
 
+
+    private var sectorSalidaP:String?=""
+    private var sectorLlegadaP:String?=""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_publicacion)
@@ -33,10 +37,21 @@ class Publicacion : AppCompatActivity() {
 
         elimnarCalles()
 
+
+        val bundle :Bundle?=intent.extras
+
+        if (bundle!=null){
+            sectorLlegadaP = bundle.getString("sentidoLlegada")
+            sectorSalidaP = bundle.getString("sentidoSalida")
+        }
+        Toast.makeText(this, sectorLlegadaP + ""+ sectorSalidaP, Toast.LENGTH_SHORT).show()
+
     }
 
     fun onClickButtonPublicacion(view: View) {
-        var intent = Intent(this, pantallaPrincipal::class.java)
+        var intent = Intent(this, CompartirResumen::class.java)
+        intent.putExtra("sectorSalida",sectorSalidaP)
+        intent.putExtra("sectorLlegada",sectorLlegadaP)
         startActivity(intent)
 
     }
@@ -77,4 +92,10 @@ class Publicacion : AppCompatActivity() {
                     .setNegativeButton("Cancelar", null).show()
             }
     }
+
+
+
+
+
+
 }
