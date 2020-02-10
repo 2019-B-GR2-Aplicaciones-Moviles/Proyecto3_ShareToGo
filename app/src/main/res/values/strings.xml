@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ShareToGo</string>
+    <string name="sentidoSalida">Sentido de salida</string>
+    <string name="sentidoLlegada">Sentido de llegada</string>
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
     <string name="usar">Usar</string>
@@ -34,5 +36,13 @@
     <string name="menu_item_logout">Cerrar Sesión</string>
     <string name="title_activity_mapa">Map</string>
     <string name="info_driver_phone">Telefono: </string>
-
+    <string name="hora">Seleccione la hora de inicio de la ruta</string>
+    <string name="pasajeros">Ingrese el numero de pasajeros que puede llevar</string>
+    <string name="sectorInicio">Ingrese el sector de salida</string>
+    <string name="sectorFin">ingrese el sector de llegada</string>
+    <string name="informacionAdicional">Informacion sobre su vehiculo</string>
+    <string name="marca">Ingrese la marca</string>
+    <string name="modelo">Ingrese el modelo</string>
+    <string name="placa">Ingrese la placa</string>
+    <string name="color">Ingrese el color</string>
 </resources>
