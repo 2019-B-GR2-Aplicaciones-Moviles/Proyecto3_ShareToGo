@@ -1,12 +1,23 @@
 package com.example.sharetogo
 
+import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toast
+import com.example.sharetogo.models.Rutas
+import com.example.sharetogo.models.Usuarios
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_compartir_resumen.*
 import java.util.ArrayList
 
 class CompartirResumen : AppCompatActivity() {
+
 
     private var sentidoSalida:String?=""
     private var sentidoLlegada:String?=""
@@ -18,11 +29,25 @@ class CompartirResumen : AppCompatActivity() {
     private var modelo:String? = ""
     private var placa:String? = ""
     private var color:String? = ""
-    private var lista: ArrayList<String>? = null
+    private var items1: ArrayList<String>? = null
+    lateinit var items: ArrayList<String>
+    lateinit var  adp: ArrayAdapter<String>
+    lateinit var list: ListView
+    lateinit var rutas:Rutas
+
+    lateinit var dataRef:DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compartir_resumen)
+        dataRef=FirebaseDatabase.getInstance().reference
+
+        items=ArrayList<String>()
+        adp = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items)
+        list = findViewById(R.id.listaCompartir)
+        list.adapter=adp
+
 
         val bundle :Bundle?=intent.extras
 
@@ -37,11 +62,21 @@ class CompartirResumen : AppCompatActivity() {
             color = bundle.getString("color")
             hora = bundle.getString("hora")
             pasajeros = bundle.getString("pasajeros")
-            lista = bundle.getStringArrayList("lista")
+            items1 = bundle.getStringArrayList("lista")
+
             //Toast.makeText(this, sentidoSalida + ""+ sentidoLlegada, Toast.LENGTH_SHORT).show()
         }
+
+        val key = dataRef
+            .child("rutas")
+            .child("hola")
+            .push().key
+
+        rutas = Rutas(key,items1!!,pasajeros?.toInt()!!,color!!,true,hora!!,modelo!!,0,placa!!
+        ,sectorLlegada!!,sectorSalida!!,sentidoSalida!!.substring(0,1)+"-"+sentidoLlegada!!.substring(0,1))
+
         //Toast.makeText(this, lista?.get(0), Toast.LENGTH_SHORT).show()
-        recorrerLista()
+        recorrerLista( )
         textViewSentidoLlegada.text=sentidoLlegada
         textViewSentidoSalida.text=sentidoSalida
         textViewSectorLleagada.text=sectorLlegada
@@ -52,14 +87,49 @@ class CompartirResumen : AppCompatActivity() {
         textViewColor.text=color
         textViewHoraInicio.text=hora
         textViewNumeroPasajeros.text=pasajeros
+
+    }
+    fun onclicAceptar(view:View){
+
+        registrarRuta()
+
     }
 
     fun recorrerLista(){
         //var tamaño: Int? = lista?.size
         var elementos:String=""
-        for (item in this!!.lista!!){
+        for (item in this!!.items1!!){
             elementos=elementos + "\n" + item
+            items.add( item)
+            adp.notifyDataSetChanged()
         }
         Toast.makeText(this, elementos, Toast.LENGTH_SHORT).show()
+    }
+
+    fun registrarRuta(){
+        dataRef.child("rutas").child("hola").child(rutas.id.toString()) //id del usuario es hola
+            .setValue(rutas)
+            .addOnCompleteListener(this){
+                task ->
+                if (task.isSuccessful){
+                    Toast.makeText(this, "Datos guardados", Toast.LENGTH_SHORT).show()
+                    AdapterView.OnItemClickListener { parent, view, position, id ->
+                        AlertDialog.Builder(this)
+                            .setTitle("En Hora Buena")
+                            .setMessage("Tu ruta a sido registrada con éxito\n ahora espera que unode nuestros usuarios te contacte")
+                            .setPositiveButton(
+                                "Confirmar"
+                            ) { dialog, which ->
+                                val intent= Intent(this,pantallaPrincipal::class.java)
+                                startActivity(intent)
+
+                            }
+                            .setNegativeButton("Cancelar", null).show()
+                    }
+                }else{
+                    Toast.makeText(this, "Datos no guardados", Toast.LENGTH_SHORT).show()
+                }
+            }
+
     }
 }

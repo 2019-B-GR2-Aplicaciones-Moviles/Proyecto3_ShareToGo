@@ -1,14 +1,21 @@
 package com.example.sharetogo
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_publicacion.*
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_menu_registro_sentido.*
 import java.util.ArrayList
+import android.content.ClipData.Item
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.view.get
+import androidx.core.view.iterator
+import androidx.core.view.size
 
 
 class Publicacion : AppCompatActivity() {
@@ -17,8 +24,6 @@ class Publicacion : AppCompatActivity() {
     lateinit var  adp: ArrayAdapter<String>
     lateinit var list: ListView
     lateinit var  et1 :EditText
-    var contId:Int=0
-
 
     private var sentidoSalida:String?=""
     private var sentidoLlegada:String?=""
@@ -30,6 +35,7 @@ class Publicacion : AppCompatActivity() {
     private var modelo:String? = ""
     private var placa:String? = ""
     private var color:String? = ""
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +56,7 @@ class Publicacion : AppCompatActivity() {
         val bundle :Bundle?=intent.extras
 
         if (bundle!=null){
+
             sentidoLlegada = bundle.getString("sentidoLlegada")
             sentidoSalida = bundle.getString("sentidoSalida")
             sectorLlegada = bundle.getString("sectorLlegada")
@@ -63,10 +70,13 @@ class Publicacion : AppCompatActivity() {
         }
         Toast.makeText(this, marca + ""+ modelo, Toast.LENGTH_SHORT).show()
 
+
     }
+
 
     fun onClickButtonPublicacion(view: View) {
         var intent = Intent(this, CompartirResumen::class.java)
+
         intent.putExtra("sentidoSalida",sentidoSalida)
         intent.putExtra("sentidoLlegada",sentidoLlegada)
         intent.putExtra("sectorSalida",sectorSalida)
@@ -77,12 +87,10 @@ class Publicacion : AppCompatActivity() {
         intent.putExtra("color",color)
         intent.putExtra("hora",hora)
         intent.putExtra("pasajeros",pasajeros)
-        intent.putExtra("lista",items)
+		intent.putExtra("lista",items)     
         startActivity(intent)
 
     }
-
-
 
     fun onClickButtonAnadirCalles(view: View)
     {
@@ -91,11 +99,9 @@ class Publicacion : AppCompatActivity() {
             if (nombreCalles.isEmpty()) {
                 Toast.makeText(this, "No ha ingresado ningun nombre de calle", Toast.LENGTH_SHORT).show()
             }else{
-                contId++
-                items.add(contId.toString() +"     "+ et1.text.toString())
+                items.add(et1.text.toString())
                 adp.notifyDataSetChanged()
                 et1.setText("")
-                Toast.makeText(this, "id   "+ contId + "       nombre    " + nombreCalles, Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -113,7 +119,6 @@ class Publicacion : AppCompatActivity() {
                     ) { dialog, which ->
                         items.removeAt(position)
                         adp.notifyDataSetChanged()
-                        contId--
                     }
                     .setNegativeButton("Cancelar", null).show()
             }
