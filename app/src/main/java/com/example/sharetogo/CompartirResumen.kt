@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_compartir_resumen.*
+import java.util.ArrayList
 
 class CompartirResumen : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class CompartirResumen : AppCompatActivity() {
     private var modelo:String? = ""
     private var placa:String? = ""
     private var color:String? = ""
-
+    private var lista: ArrayList<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +37,11 @@ class CompartirResumen : AppCompatActivity() {
             color = bundle.getString("color")
             hora = bundle.getString("hora")
             pasajeros = bundle.getString("pasajeros")
+            lista = bundle.getStringArrayList("lista")
             //Toast.makeText(this, sentidoSalida + ""+ sentidoLlegada, Toast.LENGTH_SHORT).show()
         }
-
+        //Toast.makeText(this, lista?.get(0), Toast.LENGTH_SHORT).show()
+        recorrerLista()
         textViewSentidoLlegada.text=sentidoLlegada
         textViewSentidoSalida.text=sentidoSalida
         textViewSectorLleagada.text=sectorLlegada
@@ -49,5 +52,14 @@ class CompartirResumen : AppCompatActivity() {
         textViewColor.text=color
         textViewHoraInicio.text=hora
         textViewNumeroPasajeros.text=pasajeros
+    }
+
+    fun recorrerLista(){
+        //var tamaño: Int? = lista?.size
+        var elementos:String=""
+        for (item in this!!.lista!!){
+            elementos=elementos + "\n" + item
+        }
+        Toast.makeText(this, elementos, Toast.LENGTH_SHORT).show()
     }
 }
