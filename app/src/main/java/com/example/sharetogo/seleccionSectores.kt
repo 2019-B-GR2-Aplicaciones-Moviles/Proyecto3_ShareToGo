@@ -60,8 +60,8 @@ class seleccionSectores : AppCompatActivity() {
             var intent = Intent(this, MenuRegistroSentido::class.java)
             intent.putExtra("sentidoSalida",sentidoSalida)
             intent.putExtra("sentidoLlegada",sentidoLlegada)
-            intent.putExtra("hora",editTextHoraInicio.text)
-            intent.putExtra("pasajeros",editTextPasajeros.text)
+            intent.putExtra("hora",editTextHoraInicio.text.toString())
+            intent.putExtra("pasajeros",editTextPasajeros.text.toString())
             startActivity(intent)
         } else {
             showDialogMessage(msgError.toString() , "Oops")
