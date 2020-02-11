@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sharetogo">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -8,6 +9,8 @@
     -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +22,11 @@
         <activity android:name=".CompartirResumen"></activity>
         <activity android:name=".lista_sectores_disponibles"></activity>
         <activity android:name=".MenuRegistroSentido"></activity>
+        <activity android:name=".accountActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pantallaPrincipal" />
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -33,7 +41,7 @@
 
         <activity
             android:name=".Mapa"
-            android:label="@string/title_activity_mapa" />
+            android:label="@string/title_activity_mapa"></activity>
         <activity android:name=".signUp" />
         <activity android:name=".signIn" />
 
@@ -58,7 +66,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SeleccionSectoresUsar"
+            android:name=".SeleccionSectoresPublicar"
             android:parentActivityName=".pantallaPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -66,10 +74,10 @@
         </activity>
         <activity
             android:name=".Publicacion"
-            android:parentActivityName=".SeleccionSectoresUsar">
+            android:parentActivityName=".SeleccionSectoresPublicar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SeleccionSectoresUsar" />
+                android:value=".SeleccionSectoresPublicar" />
         </activity>
         <activity
             android:name=".accionEjecutada"

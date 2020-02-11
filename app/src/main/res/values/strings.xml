@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">ShareToGo</string>
-    <string name="sentidoSalida">Sentido de salida</string>
-    <string name="sentidoLlegada">Sentido de llegada</string>
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
     <string name="usar">Usar</string>
@@ -59,4 +57,23 @@
     <string name="textViewTituloColor">Color</string>
     <string name="btnAceptaPublicacion">Aceptar</string>
     <string name="textViewTituloListaCalles">Listado de calles</string>
+    <string name="info_driver_email">Correo: </string>
+    <string name="info_driver_name">Nombre: </string>
+    <string name="info_route_capacity">Capacidad: </string>
+    <string name="info_route_car_color">Color del auto: </string>
+    <string name="info_route_hour">Hora: </string>
+    <string name="info_route_passengers">Pasajeros: </string>
+    <string name="info_route_car_id">Placa del auto: </string>
+    <string name="info_route_car_model">Marca del auto: </string>
+    <string name="info_route_sector_ini">Sector de salida: </string>
+    <string name="info_route_sector_end">Sector de llegada: </string>
+    <string name="info_route_direction">Sentido: </string>
+    <string name="info_route_streets">Calles: </string>
+    <string name="account_name">Nombre: </string>
+    <string name="account_email">Correo: </string>
+    <string name="account_phone">Teléfono: </string>
+    <string name="account_password">Contraseña: </string>
+    <string name="account_confirm_password">Confirmacion de contraseña: </string>
+    <string name="account_button_save">Guardar</string>
+
 </resources>
