@@ -16,9 +16,12 @@
         android:roundIcon="@mipmap/ic_index_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompartirResumen"></activity>
-        <activity android:name=".lista_sectores_disponibles"></activity>
-        <activity android:name=".MenuRegistroSentido"></activity>
+        <activity android:name=".AdministradorActivity">
+
+        </activity>
+        <activity android:name=".CompartirResumen" />
+        <activity android:name=".lista_sectores_disponibles" />
+        <activity android:name=".MenuRegistroSentido" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
