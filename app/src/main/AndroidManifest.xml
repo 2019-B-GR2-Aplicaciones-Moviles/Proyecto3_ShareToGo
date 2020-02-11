@@ -57,7 +57,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SeleccionSectoresPublicar"
+            android:name=".SeleccionSectoresUsar"
             android:parentActivityName=".pantallaPrincipal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -65,10 +65,10 @@
         </activity>
         <activity
             android:name=".Publicacion"
-            android:parentActivityName=".SeleccionSectoresPublicar">
+            android:parentActivityName=".SeleccionSectoresUsar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SeleccionSectoresPublicar" />
+                android:value=".SeleccionSectoresUsar" />
         </activity>
         <activity
             android:name=".accionEjecutada"
