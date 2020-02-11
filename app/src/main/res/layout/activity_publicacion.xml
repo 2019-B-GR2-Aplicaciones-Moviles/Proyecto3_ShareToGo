@@ -83,4 +83,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewCalles"
         app:layout_constraintVertical_bias="1.0" />
 
+    <Button
+        android:id="@+id/prueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="73dp"
+        android:onClick="recorrerList"
+        android:text="prueba"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonPublicar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

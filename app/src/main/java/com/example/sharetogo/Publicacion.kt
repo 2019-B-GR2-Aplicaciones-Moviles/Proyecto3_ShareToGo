@@ -1,14 +1,21 @@
 package com.example.sharetogo
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_publicacion.*
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_menu_registro_sentido.*
 import java.util.ArrayList
+import android.content.ClipData.Item
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.view.get
+import androidx.core.view.iterator
+import androidx.core.view.size
 
 
 class Publicacion : AppCompatActivity() {
@@ -20,8 +27,12 @@ class Publicacion : AppCompatActivity() {
     var contId:Int=0
 
 
-    private var sectorSalidaP:String?=""
-    private var sectorLlegadaP:String?=""
+    private var sentidoSalidaP:String?=""
+    private var sentidoLlegadaP:String?=""
+    private var hora:String? = ""
+    private var pasajeros:String? = ""
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +52,26 @@ class Publicacion : AppCompatActivity() {
         val bundle :Bundle?=intent.extras
 
         if (bundle!=null){
-            sectorLlegadaP = bundle.getString("sentidoLlegada")
-            sectorSalidaP = bundle.getString("sentidoSalida")
+            sentidoSalidaP = bundle.getString("sentidoSalida")
+            sentidoLlegadaP = bundle.getString("sentidoLlegada")
+            hora = bundle.getString("hora")
+            pasajeros = bundle.getString("pasajeros")
+
+           // Toast.makeText(this, hora + "       "+ sentidoLlegadaP, Toast.LENGTH_SHORT).show()
+
         }
-        Toast.makeText(this, sectorLlegadaP + ""+ sectorSalidaP, Toast.LENGTH_SHORT).show()
+      // Toast.makeText(this, hora + "       "+ sentidoLlegadaP, Toast.LENGTH_SHORT).show()
 
     }
 
+
     fun onClickButtonPublicacion(view: View) {
         var intent = Intent(this, CompartirResumen::class.java)
-        intent.putExtra("sectorSalida",sectorSalidaP)
-        intent.putExtra("sectorLlegada",sectorLlegadaP)
+        intent.putExtra("sentidoLlegada",sentidoLlegadaP)
+        intent.putExtra("sentidoSalida",sentidoSalidaP)
+        intent.putExtra("hora",hora)
+        intent.putExtra("pasajeros",pasajeros)
+
         startActivity(intent)
 
     }
