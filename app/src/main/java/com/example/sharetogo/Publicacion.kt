@@ -24,8 +24,6 @@ class Publicacion : AppCompatActivity() {
     lateinit var  adp: ArrayAdapter<String>
     lateinit var list: ListView
     lateinit var  et1 :EditText
-    var contId:Int=0
-
 
     private var sentidoSalida:String?=""
     private var sentidoLlegada:String?=""
@@ -94,8 +92,6 @@ class Publicacion : AppCompatActivity() {
 
     }
 
-
-
     fun onClickButtonAnadirCalles(view: View)
     {
         btnAnadirCalles.setOnClickListener(View.OnClickListener {
@@ -103,11 +99,9 @@ class Publicacion : AppCompatActivity() {
             if (nombreCalles.isEmpty()) {
                 Toast.makeText(this, "No ha ingresado ningun nombre de calle", Toast.LENGTH_SHORT).show()
             }else{
-                contId++
-                items.add(contId.toString() +"     "+ et1.text.toString())
+                items.add(et1.text.toString())
                 adp.notifyDataSetChanged()
                 et1.setText("")
-                Toast.makeText(this, "id   "+ contId + "       nombre    " + nombreCalles, Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -125,7 +119,6 @@ class Publicacion : AppCompatActivity() {
                     ) { dialog, which ->
                         items.removeAt(position)
                         adp.notifyDataSetChanged()
-                        contId--
                     }
                     .setNegativeButton("Cancelar", null).show()
             }
