@@ -1,6 +1,8 @@
 package com.example.sharetogo
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -30,6 +32,7 @@ class signIn : AppCompatActivity() {
     private var user : Usuarios? = null
     private lateinit var email: String
     private lateinit var password: String
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,7 @@ class signIn : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
         databaseRef = FirebaseDatabase.getInstance().reference
+        sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
 
         editTextSignInEmail.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -129,6 +133,9 @@ class signIn : AppCompatActivity() {
             task ->
             if (task.isSuccessful) {
                 currentUser = auth.currentUser
+                val editor = sharedPreferences.edit()
+                editor.putString("userid",currentUser?.uid)
+
                 val intent = Intent(baseContext, pantallaPrincipal::class.java)
                 startActivity(intent)
             } else {
