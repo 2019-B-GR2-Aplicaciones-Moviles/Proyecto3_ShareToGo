@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -50,12 +49,12 @@ class pantallaPrincipal : AppCompatActivity() {
     }
 
     fun onClickButtonUsar ( view: View ) {
-        var intent = Intent( this, seleccionSectores::class.java)
+        var intent = Intent( this, SeleccionSectoresUsar::class.java)
         startActivity(intent)
     }
 
     fun onClickButtonCompartir ( view: View ) {
-        var intent = Intent(this, SeleccionSectoresPublicar::class.java)
+        var intent = Intent(this, seleccionSectores::class.java)
         startActivity(intent)
     }
 

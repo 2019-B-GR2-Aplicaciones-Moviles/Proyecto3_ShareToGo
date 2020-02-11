@@ -6,95 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".seleccionSectores">
 
-    <CheckBox
-        android:id="@+id/checkBoxSalidaN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/norte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSectorSalida" />
-
-    <CheckBox
-        android:id="@+id/checkBoxSalidaC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RadioGroup
+        android:id="@+id/radioGroupSalida"
+        android:layout_width="145dp"
+        android:layout_height="105dp"
         android:layout_marginTop="16dp"
-        android:text="@string/centro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSalidaN" />
+        app:layout_constraintStart_toStartOf="@+id/textViewTituloSentidoSalida"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSentidoSalida">
 
-    <CheckBox
-        android:id="@+id/checkBoxSalidaS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <RadioButton
+            android:id="@+id/radioButtonSalidaN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/norte" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSalidaC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/centro" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSalidaS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/sur" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupLlegada"
+        android:layout_width="133dp"
+        android:layout_height="102dp"
         android:layout_marginTop="16dp"
-        android:text="@string/sur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSalidaC" />
+        app:layout_constraintStart_toStartOf="@+id/textViewSentidoLlegada"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSentidoLlegada">
 
-    <CheckBox
-        android:id="@+id/checkBoxLlegadaN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/norte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSectorLlegada" />
+        <RadioButton
+            android:id="@+id/radioButtonLlegadaN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/norte" />
 
-    <CheckBox
-        android:id="@+id/checkBoxLlegadaC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/centro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxLlegadaN" />
+        <RadioButton
+            android:id="@+id/radioButtonLlegadaC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/centro" />
 
-    <CheckBox
-        android:id="@+id/checkBoxLlegadaS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/sur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxLlegadaC" />
+        <RadioButton
+            android:id="@+id/radioButtonLlegadaS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/sur" />
+    </RadioGroup>
 
     <TextView
-        android:id="@+id/textViewSectorSalida"
+        android:id="@+id/textViewTituloSentidoSalida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="@string/salida"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sentidoSalida"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewSectorLlegada"
+        android:id="@+id/textViewSentidoLlegada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/llegada"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/sentidoLlegada"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSalidaS" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonSectorContinuar"
@@ -108,4 +100,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewHoraInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/hora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSalida" />
+
+    <EditText
+        android:id="@+id/editTextHoraInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="@+id/textViewHoraInicio"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoraInicio" />
+
+    <TextView
+        android:id="@+id/textViewPasajeros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/pasajeros"
+        app:layout_constraintStart_toStartOf="@+id/editTextHoraInicio"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHoraInicio" />
+
+    <EditText
+        android:id="@+id/editTextPasajeros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/textViewPasajeros"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPasajeros" />
 </androidx.constraintlayout.widget.ConstraintLayout>
