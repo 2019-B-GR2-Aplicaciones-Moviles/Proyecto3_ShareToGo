@@ -20,8 +20,17 @@ class Publicacion : AppCompatActivity() {
     var contId:Int=0
 
 
-    private var sectorSalidaP:String?=""
-    private var sectorLlegadaP:String?=""
+    private var sentidoSalida:String?=""
+    private var sentidoLlegada:String?=""
+    private var hora:String? = ""
+    private var pasajeros:String? = ""
+    private var sectorSalida:String? = ""
+    private var sectorLlegada:String? = ""
+    private var marca:String? = ""
+    private var modelo:String? = ""
+    private var placa:String? = ""
+    private var color:String? = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +50,33 @@ class Publicacion : AppCompatActivity() {
         val bundle :Bundle?=intent.extras
 
         if (bundle!=null){
-            sectorLlegadaP = bundle.getString("sentidoLlegada")
-            sectorSalidaP = bundle.getString("sentidoSalida")
+            sentidoLlegada = bundle.getString("sentidoLlegada")
+            sentidoSalida = bundle.getString("sentidoSalida")
+            sectorLlegada = bundle.getString("sectorLlegada")
+            sectorSalida = bundle.getString("sectorSalida")
+            marca = bundle.getString("marca")
+            modelo = bundle.getString("modelo")
+            placa = bundle.getString("placa")
+            color = bundle.getString("color")
+            hora = bundle.getString("hora")
+            pasajeros = bundle.getString("pasajeros")
         }
-        Toast.makeText(this, sectorLlegadaP + ""+ sectorSalidaP, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, marca + ""+ modelo, Toast.LENGTH_SHORT).show()
 
     }
 
     fun onClickButtonPublicacion(view: View) {
         var intent = Intent(this, CompartirResumen::class.java)
-        intent.putExtra("sectorSalida",sectorSalidaP)
-        intent.putExtra("sectorLlegada",sectorLlegadaP)
+        intent.putExtra("sentidoSalida",sentidoSalida)
+        intent.putExtra("sentidoLlegada",sentidoLlegada)
+        intent.putExtra("sectorSalida",sectorSalida)
+        intent.putExtra("sectorLlegada",sectorLlegada)
+        intent.putExtra("marca",marca)
+        intent.putExtra("modelo",modelo)
+        intent.putExtra("placa",placa)
+        intent.putExtra("color",color)
+        intent.putExtra("hora",hora)
+        intent.putExtra("pasajeros",pasajeros)
         startActivity(intent)
 
     }

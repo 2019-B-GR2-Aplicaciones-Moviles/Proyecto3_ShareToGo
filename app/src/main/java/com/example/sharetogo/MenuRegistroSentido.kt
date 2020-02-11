@@ -126,12 +126,12 @@ class MenuRegistroSentido : AppCompatActivity() {
         msgError = ""
         if (validateData()) {
             var intent = Intent(this, Publicacion::class.java)
-            intent.putExtra("sectorSalida",editTextSectorSalida.text)
-            intent.putExtra("sectorLlegada",editTextSectorLlegada.text)
-            intent.putExtra("marca",editTextMarca.text)
-            intent.putExtra("modelo",editTextModelo.text)
-            intent.putExtra("placa",editTextPlaca.text)
-            intent.putExtra("color",editTextColor.text)
+            intent.putExtra("sectorSalida",editTextSectorSalida.text.toString())
+            intent.putExtra("sectorLlegada",editTextSectorLlegada.text.toString())
+            intent.putExtra("marca",editTextMarca.text.toString())
+            intent.putExtra("modelo",editTextModelo.text.toString())
+            intent.putExtra("placa",editTextPlaca.text.toString())
+            intent.putExtra("color",editTextColor.text.toString())
             intent.putExtra("sentidoSalida",sentidoSalida)
             intent.putExtra("sentidoLlegada",sentidoLlegada)
             intent.putExtra("hora",hora)
