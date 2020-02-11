@@ -11,8 +11,8 @@
         android:layout_width="145dp"
         android:layout_height="105dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewSentidoSalida"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSentidoSalida">
+        app:layout_constraintStart_toStartOf="@+id/textViewTituloSentidoSalida"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSentidoSalida">
 
         <RadioButton
             android:id="@+id/radioButtonSalidaN"
@@ -67,7 +67,7 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/textViewSentidoSalida"
+        android:id="@+id/textViewTituloSentidoSalida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

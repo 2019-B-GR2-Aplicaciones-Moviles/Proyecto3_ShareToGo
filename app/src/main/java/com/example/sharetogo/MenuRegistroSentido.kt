@@ -34,6 +34,7 @@ class MenuRegistroSentido : AppCompatActivity() {
             hora = bundle.getString("hora")
             pasajeros = bundle.getString("pasajeros")
         }
+        //Toast.makeText(this, sentidoLlegada + ""+ sentidoSalida, Toast.LENGTH_SHORT).show()
 
         editTextSectorSalida.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -124,7 +125,7 @@ class MenuRegistroSentido : AppCompatActivity() {
     fun onClickButtonContinuarSentido( view: View) {
         msgError = ""
         if (validateData()) {
-            var intent = Intent(this, signIn::class.java)
+            var intent = Intent(this, Publicacion::class.java)
             intent.putExtra("sectorSalida",editTextSectorSalida.text)
             intent.putExtra("sectorLlegada",editTextSectorLlegada.text)
             intent.putExtra("marca",editTextMarca.text)
