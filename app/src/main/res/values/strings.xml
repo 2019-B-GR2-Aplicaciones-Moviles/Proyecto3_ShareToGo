@@ -46,5 +46,11 @@
     <string name="info_route_sector_end">Sector de llegada: </string>
     <string name="info_route_direction">Sentido: </string>
     <string name="info_route_streets">Calles: </string>
+    <string name="account_name">Nombre: </string>
+    <string name="account_email">Correo: </string>
+    <string name="account_phone">Teléfono: </string>
+    <string name="account_password">Contraseña: </string>
+    <string name="account_confirm_password">Confirmacion de contraseña: </string>
+    <string name="account_button_save">Guardar</string>
 
 </resources>
