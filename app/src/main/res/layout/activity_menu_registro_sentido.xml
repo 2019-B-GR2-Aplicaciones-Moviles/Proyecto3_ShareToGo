@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuRegistroSentido">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sectorInicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSectorLlegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/sectorFin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextSectorSalida"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/salida"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/editTextSectorLlegada"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/llegada"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textViewSectorLlegada"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSectorLlegada" />
+
+    <TextView
+        android:id="@+id/textViewInformacionVehiculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/informacionAdicional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSectorSalida" />
+
+    <EditText
+        android:id="@+id/editTextMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/marca"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textViewInformacionVehiculo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInformacionVehiculo" />
+
+    <EditText
+        android:id="@+id/editTextModelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/modelo"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextMarca"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMarca" />
+
+    <EditText
+        android:id="@+id/editTextPlaca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/placa"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextModelo"
+        app:layout_constraintTop_toBottomOf="@+id/editTextModelo" />
+
+    <EditText
+        android:id="@+id/editTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/color"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextPlaca"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPlaca" />
+
+    <Button
+        android:id="@+id/buttonContinuarSentido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#8BC34A"
+        android:onClick="onClickButtonContinuarSentido"
+        android:text="@string/continuar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
