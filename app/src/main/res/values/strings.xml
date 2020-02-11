@@ -47,10 +47,15 @@
     <string name="modelo">Ingrese el modelo</string>
     <string name="placa">Ingrese la placa</string>
     <string name="color">Ingrese el color</string>
-    <string name="txtSentidoSalida">Sentido Salida</string>
+    <string name="txtSentidoSalida">Sentido de Salida</string>
     <string name="txtSentidoLlegada">Sentido de llegada</string>
     <string name="txtHoraInicio">Hora de Inicio</string>
     <string name="txtNumeroPasajeros">Numero de Pasajeros</string>
     <string name="txtSectorSalida">Sector de salida</string>
     <string name="txtSectorLlegada">Sector de Llegada</string>
+    <string name="textViewTituloMarca">Marca</string>
+    <string name="textViewTituloModelo">Modelo</string>
+    <string name="textViewTituloPlaca">Placa</string>
+    <string name="textViewTituloColor">Color</string>
+    <string name="btnAceptaPublicacion">Aceptar</string>
 </resources>
