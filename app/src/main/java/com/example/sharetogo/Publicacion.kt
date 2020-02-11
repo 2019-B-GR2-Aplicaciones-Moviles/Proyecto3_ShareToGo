@@ -89,7 +89,7 @@ class Publicacion : AppCompatActivity() {
         intent.putExtra("color",color)
         intent.putExtra("hora",hora)
         intent.putExtra("pasajeros",pasajeros)
-
+		intent.putExtra("lista",items)     
         startActivity(intent)
 
     }
