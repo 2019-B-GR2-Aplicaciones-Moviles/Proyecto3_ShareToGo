@@ -137,8 +137,13 @@ class signIn : AppCompatActivity() {
                 editor.putString("userid",currentUser?.uid)
                 editor.commit()
 
-                val intent = Intent(baseContext, pantallaPrincipal::class.java)
-                startActivity(intent)
+                if (currentUser?.email.equals("admin@sharetogo.com")){
+                    val intent = Intent(baseContext, AdministradorActivity::class.java)
+                    startActivity(intent)
+                }else {
+                    val intent = Intent(baseContext, pantallaPrincipal::class.java)
+                    startActivity(intent)
+                }
             } else {
                 Log.d(TAG, "signInWithEmail:failure->"+task.exception?.message)
                 showDialogMessage("Correo o contraseña incorrectos", "Oops")
