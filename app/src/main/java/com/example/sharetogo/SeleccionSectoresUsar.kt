@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class SeleccionSectoresUsar : AppCompatActivity() {
 
@@ -18,6 +20,10 @@ class SeleccionSectoresUsar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seleccion_sectores_usar)
+
+//        auth = FirebaseAuth.getInstance()
+//        currentUser = auth.currentUser
+//        databaseRef = FirebaseDatabase.getInstance().reference
     }
 
     fun onClickButtonSectorContinuar(view: View) {
