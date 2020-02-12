@@ -1,17 +1,21 @@
 package com.example.sharetogo
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sharetogo.models.Usuarios
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_account.*
+import java.util.concurrent.DelayQueue
+
 
 class accountActivity : AppCompatActivity() {
 
@@ -26,7 +30,8 @@ class accountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_account)
 
         sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
-        userId = sharedPreferences.getString("userid", null).toString()
+//        userId = sharedPreferences.getString("userid", null).toString()
+        userId = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
         databaseReference = FirebaseDatabase.getInstance().reference
@@ -42,9 +47,9 @@ class accountActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val usuarios = dataSnapshot.getValue(Usuarios::class.java)
                 usuarios?.let {
-                    editTextAccountPhone.text = it.telefono as Editable
-                    editTextAccountEmail.text = it.correo as Editable
-                    editTextAccountName.text = it.nombre as Editable
+                    editTextAccountPhone.setText(it.telefono)
+                    editTextAccountEmail.setText(it.correo)
+                    editTextAccountName.setText(it.nombre)
                 }
             }
 
@@ -55,8 +60,44 @@ class accountActivity : AppCompatActivity() {
         databaseReference.addValueEventListener(userListener)
     }
 
+    private fun showDialogMessage(message: String, title: String) {
+        val builder: AlertDialog.Builder? = this.let {
+            AlertDialog.Builder(it)
+        }
+
+        builder?.setMessage(message)?.setTitle(title)
+//        builder?.setOnCancelListener { dialog ->
+//        }
+
+        val dialog: AlertDialog? = builder?.create()
+        dialog?.show()
+    }
+
     fun onClickSave(view: View) {
 
-//        databaseReference.updateChildren()
+        val childrenUpdate = HashMap<String, Any>()
+        childrenUpdate["/correo"] = editTextAccountEmail.text.toString()
+        childrenUpdate["/nombre"] = editTextAccountName.text.toString()
+        childrenUpdate["/telefono"] = editTextAccountPhone.text.toString()
+        databaseReference.updateChildren(childrenUpdate)
+            .addOnCompleteListener {
+                task ->
+                if (task.isSuccessful) {
+                    showDialogMessage("Enhorabuena", "Datos actualizados con exito")
+                    object : CountDownTimer(10000, 1000) {
+                        override fun onFinish() { // When timer is finished
+                            val intent = Intent(baseContext, pantallaPrincipal::class.java)
+                            startActivity(intent)
+                        }
+
+                        override fun onTick(millisUntilFinished: Long) { // millisUntilFinished    The amount of time until finished.
+                        }
+                    }.start()
+//                    val intent = Intent(this, pantallaPrincipal::class.java)
+//                    startActivity(intent)
+                } else {
+                    showDialogMessage("No se pudo Actualizar", "Hubo un error")
+                }
+            }
     }
 }

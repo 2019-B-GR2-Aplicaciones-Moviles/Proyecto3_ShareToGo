@@ -36,6 +36,8 @@ class pantallaPrincipal : AppCompatActivity() {
                 true
             }
             R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_logout -> {
