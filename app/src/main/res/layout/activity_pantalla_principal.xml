@@ -69,6 +69,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:background="#8BC34A"
+        android:onClick="onClickInfoList"
         android:text="@string/infoList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

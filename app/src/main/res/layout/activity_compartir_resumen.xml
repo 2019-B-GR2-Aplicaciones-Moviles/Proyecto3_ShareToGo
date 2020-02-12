@@ -8,11 +8,13 @@
 
     <TextView
         android:id="@+id/textViewTituloSentidoSalida"
-        android:layout_width="146dp"
-        android:layout_height="22dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="154dp"
+        android:layout_height="25dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="@string/txtSentidoSalida"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,19 +22,21 @@
         android:id="@+id/textViewSentidoSalida"
         android:layout_width="147dp"
         android:layout_height="24dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSentidoSalida" />
 
     <TextView
         android:id="@+id/textViewTituloSentidoLlegada"
-        android:layout_width="136dp"
-        android:layout_height="24dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="158dp"
+        android:layout_height="27dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:text="@string/txtSentidoLlegada"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloSentidoSalida"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,16 +49,19 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toEndOf="@+id/textViewSentidoSalida"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSentidoLlegada" />
 
     <TextView
         android:id="@+id/textViewTituloHoraInicio"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
         android:layout_width="149dp"
         android:layout_height="25dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/txtHoraInicio"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSentidoSalida" />
 
@@ -69,32 +76,36 @@
 
     <TextView
         android:id="@+id/textViewTituloNumeroPasajero"
-        android:layout_width="149dp"
-        android:layout_height="25dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="137dp"
+        android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/txtNumeroPasajeros"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloHoraInicio" />
 
     <TextView
         android:id="@+id/textViewNumeroPasajeros"
-        android:layout_width="139dp"
-        android:layout_height="23dp"
+        android:layout_width="143dp"
+        android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="19dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloNumeroPasajero"
         app:layout_constraintTop_toBottomOf="@+id/textViewHoraInicio" />
 
     <TextView
         android:id="@+id/textViewTituloSectorSalida"
-        android:layout_width="150dp"
-        android:layout_height="22dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="155dp"
+        android:layout_height="24dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/txtSectorSalida"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloNumeroPasajero" />
 
@@ -102,20 +113,22 @@
         android:id="@+id/textViewSectorSalida"
         android:layout_width="149dp"
         android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSectorSalida" />
 
     <TextView
         android:id="@+id/textViewTituloSectorLlegada"
-        android:layout_width="139dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="152dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/txtSectorLlegada"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloSectorSalida"
         app:layout_constraintTop_toBottomOf="@+id/textViewNumeroPasajeros" />
 
@@ -123,25 +136,28 @@
         android:id="@+id/textViewSectorLleagada"
         android:layout_width="143dp"
         android:layout_height="22dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.323"
         app:layout_constraintStart_toEndOf="@+id/textViewSectorSalida"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSectorLlegada" />
 
     <TextView
         android:id="@+id/textViewTituloMarca"
-        android:layout_width="151dp"
-        android:layout_height="22dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="152dp"
+        android:layout_height="28dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/textViewTituloMarca"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSectorSalida" />
 
     <TextView
         android:id="@+id/textViewMarca"
-        android:layout_width="141dp"
-        android:layout_height="23dp"
+        android:layout_width="142dp"
+        android:layout_height="30dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloMarca"
@@ -149,61 +165,67 @@
 
     <TextView
         android:id="@+id/textViewTituloModelo"
-        android:layout_width="147dp"
-        android:layout_height="20dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="146dp"
+        android:layout_height="24dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/textViewTituloModelo"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloMarca" />
 
     <TextView
         android:id="@+id/textViewModelo"
-        android:layout_width="142dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="143dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloModelo"
         app:layout_constraintTop_toBottomOf="@+id/textViewMarca" />
 
     <TextView
         android:id="@+id/textViewTituloPlaca"
-        android:layout_width="146dp"
-        android:layout_height="19dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="140dp"
+        android:layout_height="27dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/textViewTituloPlaca"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloModelo" />
 
     <TextView
         android:id="@+id/textViewPlaca"
-        android:layout_width="144dp"
-        android:layout_height="21dp"
+        android:layout_width="139dp"
+        android:layout_height="28dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloPlaca"
         app:layout_constraintTop_toBottomOf="@+id/textViewModelo" />
 
     <TextView
         android:id="@+id/textViewTituloColor"
-        android:layout_width="147dp"
-        android:layout_height="20dp"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="144dp"
+        android:layout_height="25dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="@string/textViewTituloColor"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloPlaca" />
 
     <TextView
         android:id="@+id/textViewColor"
-        android:layout_width="143dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="140dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toEndOf="@+id/textViewTituloColor"
         app:layout_constraintTop_toBottomOf="@+id/textViewPlaca" />
 
@@ -212,19 +234,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="#8BC34A"
+        android:onClick="onclicAceptar"
         android:text="@string/btnAceptaPublicacion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:layout_width="335dp"
-        android:layout_height="237dp"
+        android:id="@+id/listaCompartir"
+        android:layout_width="368dp"
+        android:layout_height="188dp"
         android:layout_marginStart="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloColor"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloListaCalles"
+        app:layout_constraintVertical_bias="0.134" />
+
+    <TextView
+        android:id="@+id/textViewTituloListaCalles"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="187dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/textViewTituloListaCalles"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloColor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,11 @@
 package com.example.sharetogo
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -23,6 +26,7 @@ class SeleccionRuta : AppCompatActivity() {
     private var currentUser: FirebaseUser? = null
     lateinit var rutasID : String
     lateinit var user_rutasID : String
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,14 +35,17 @@ class SeleccionRuta : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
+        sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
 
-        user_rutasID = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
-        rutasID = "1234567890abcdefghijklmnopqr" // get to putextra
+//        user_rutasID = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
+//        user_rutasID = sharedPreferences.getString("userid","No existe la referencia").toString()
+
+        rutasID = intent.extras?.getString("rutasId").toString() // get to putextra
 
         databaseReference = FirebaseDatabase.getInstance().reference
             .child("rutas")
-            .child(user_rutasID) // get to putextra
-            .child(rutasID) // get to putextra
+//            .child(user_rutasID) // get to putextra
+//            .child(rutasID) // get to putextra
 
     }
 
@@ -53,19 +60,41 @@ class SeleccionRuta : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 radioGroup.removeAllViews()
                 radioGroup2.removeAllViews()
-                rutas = dataSnapshot.getValue(Rutas::class.java)
-                rutas?.let {
-                    textViewSectorIniciio.text = it.sector_ini
-                    textViewSectorFin.text = it.sector_fin
-                    for (item in it.calles) {
-                        val radioButtonA = RadioButton(baseContext)
-                        radioButtonA.text = item
-                        val radioButtonB = RadioButton(baseContext)
-                        radioButtonB.text = item
-                        radioGroup.addView(radioButtonA)
-                        radioGroup2.addView(radioButtonB)
+                dataSnapshot.children.forEach{
+                    children ->
+                    children.children.forEach{
+                        if (it.key.toString().equals(rutasID)) {
+                            rutas = it.getValue(Rutas::class.java)
+                            rutas?.let {
+                                textViewSectorIniciio.text = it.sector_ini
+                                textViewSectorFin.text = it.sector_fin
+                                for (item in it.calles) {
+                                    val radioButtonA = RadioButton(baseContext)
+                                    radioButtonA.text = item
+                                    val radioButtonB = RadioButton(baseContext)
+                                    radioButtonB.text = item
+                                    radioGroup.addView(radioButtonA)
+                                    radioGroup2.addView(radioButtonB)
+                                }
+                            }
+                            user_rutasID = children.key.toString()
+                        }
                     }
+
                 }
+//                rutas = dataSnapshot.getValue(Rutas::class.java)
+//                rutas?.let {
+//                    textViewSectorIniciio.text = it.sector_ini
+//                    textViewSectorFin.text = it.sector_fin
+//                    for (item in it.calles) {
+//                        val radioButtonA = RadioButton(baseContext)
+//                        radioButtonA.text = item
+//                        val radioButtonB = RadioButton(baseContext)
+//                        radioButtonB.text = item
+//                        radioGroup.addView(radioButtonA)
+//                        radioGroup2.addView(radioButtonB)
+//                    }
+//                }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -76,10 +105,10 @@ class SeleccionRuta : AppCompatActivity() {
     }
 
     fun onClickButtonRutaContinuar(view: View) {
-        val key = databaseReference
-            .child("rutas")
-            .child("mJK9ParRAbX3fXLxNXTVE18TzTY2")
-            .push().key
+//        val key = databaseReference
+//            .child("rutas")
+//            .child("mJK9ParRAbX3fXLxNXTVE18TzTY2")
+//            .push().key
         if (radioGroup.checkedRadioButtonId == -1 || radioGroup2.checkedRadioButtonId == -1) {
             Toast.makeText(this, "Seleccione el lugar de salida y destino primeo", Toast.LENGTH_LONG).show()
             return
@@ -111,6 +140,8 @@ class SeleccionRuta : AppCompatActivity() {
                 true
             }
             R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_logout -> {

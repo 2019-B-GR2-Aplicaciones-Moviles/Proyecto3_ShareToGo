@@ -1,10 +1,12 @@
 package com.example.sharetogo
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.example.sharetogo.models.Rutas
 import com.example.sharetogo.models.Usuarios
@@ -31,6 +33,7 @@ class accionEjecutada : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accion_ejecutada)
 
+
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
 
@@ -47,6 +50,9 @@ class accionEjecutada : AppCompatActivity() {
         userReference = FirebaseDatabase.getInstance().reference
             .child("usuarios")
             .child(user_rutasID)
+
+        textViewInfoSectorIni.text = sector_ini
+        textViewInfoSectorFin.text = sector_fin
     }
     override fun onStart() {
         super.onStart()
@@ -60,6 +66,13 @@ class accionEjecutada : AppCompatActivity() {
                 rutas = dataSnapshot.getValue(Rutas::class.java)
                 rutas?.let {
 //                    textViewInfoPhone.text =
+                    textViewInfoCarModel.text = it.modelo_carro
+                    textViewInfoCarColor.text = it.color
+                    textViewInfoCarID.text = it.placa_carro
+                    textViewInfoCapacity.text = it.capacidad.toString()
+                    textViewInfoPassengers.text = it.pasajeros.toString()
+                    textViewInfoDirection.text = it.sentido
+                    textViewInfoHour.text = it.hora
                 }
             }
 
@@ -73,6 +86,8 @@ class accionEjecutada : AppCompatActivity() {
                 usuarios = dataSnapshot.getValue(Usuarios::class.java)
                 usuarios?.let {
                     textViewInfoPhone.text = it.telefono
+                    textViewInfoEmail.text = it.correo
+                    textViewInfoName.text = it.nombre
                 }
             }
 
@@ -83,7 +98,6 @@ class accionEjecutada : AppCompatActivity() {
         userReference.addValueEventListener(userListener)
 
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -97,20 +111,47 @@ class accionEjecutada : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.item_menu_home -> {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, pantallaPrincipal::class.java)
                 startActivity(intent)
                 true
             }
             R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_logout -> {
-                auth.signOut()
+                FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun onClickPhone( view: View) {
+        val intent = Uri.parse("tel: +593"+textViewInfoPhone.text).let {
+            number ->
+            Intent(Intent.ACTION_VIEW, number)
+        }
+        startActivity(intent)
+    }
+
+    fun onClickMail( view: View) {
+        val intent = Uri.parse("mailto:"+textViewInfoEmail.text).let {
+            email ->
+            Intent(Intent.ACTION_VIEW, email)
+        }
+        startActivity(intent)
+    }
+
+    fun onClickMessage(view: View) {
+        val intent = Uri.parse("sms: +593"+textViewInfoPhone.text).let {
+                number ->
+            Intent(Intent.ACTION_VIEW, number)
+        }
+        startActivity(intent)
     }
 }
