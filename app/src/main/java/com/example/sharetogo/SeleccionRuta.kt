@@ -38,6 +38,7 @@ class SeleccionRuta : AppCompatActivity() {
 
         user_rutasID = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
 //        user_rutasID = sharedPreferences.getString("userid","No existe la referencia").toString()
+
         rutasID = intent.extras?.getString("rutasId").toString() // get to putextra
 
         databaseReference = FirebaseDatabase.getInstance().reference
