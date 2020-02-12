@@ -44,6 +44,7 @@ class pantallaPrincipal : AppCompatActivity() {
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)

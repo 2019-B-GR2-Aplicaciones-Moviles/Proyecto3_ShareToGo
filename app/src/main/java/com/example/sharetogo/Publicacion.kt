@@ -13,9 +13,12 @@ import android.content.ClipData.Item
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.Menu
+import android.view.MenuItem
 import androidx.core.view.get
 import androidx.core.view.iterator
 import androidx.core.view.size
+import com.google.firebase.auth.FirebaseAuth
 
 
 class Publicacion : AppCompatActivity() {
@@ -122,6 +125,34 @@ class Publicacion : AppCompatActivity() {
                     }
                     .setNegativeButton("Cancelar", null).show()
             }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.item_menu_home -> {
+                true
+            }
+            R.id.item_menu_account -> {
+                true
+            }
+            R.id.item_menu_logout -> {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 

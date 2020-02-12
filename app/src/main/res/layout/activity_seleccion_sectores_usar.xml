@@ -12,90 +12,24 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="#8BC34A"
-        android:onClick="onClickButtonSectorContinuar"
+        android:onClick="onClickSeleccionSectoresContinuar"
         android:text="@string/continuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <CheckBox
-        android:id="@+id/checkBoxLlegadaN2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/norte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.297"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSectorLlegada2" />
-
-    <CheckBox
-        android:id="@+id/checkBoxLlegadaC2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/centro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxLlegadaN2" />
-
-    <CheckBox
-        android:id="@+id/checkBoxLlegadaS2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/sur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxLlegadaC2" />
-
     <TextView
         android:id="@+id/textViewSectorLlegada2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="64dp"
         android:text="@string/llegada"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSalidaS2" />
-
-    <CheckBox
-        android:id="@+id/checkBoxSalidaS2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/sur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSalidaC2" />
-
-    <CheckBox
-        android:id="@+id/checkBoxSalidaC2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/centro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.282"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSalidaN2" />
-
-    <CheckBox
-        android:id="@+id/checkBoxSalidaN2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/norte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.276"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSectorSalida2" />
+        app:layout_constraintTop_toBottomOf="@+id/SentidoSalidaUSAR" />
 
     <TextView
         android:id="@+id/textViewSectorSalida2"
@@ -108,4 +42,64 @@
         app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/SentidoSalidaUSAR"
+        android:layout_width="226dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewSectorSalida2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSectorSalida2">
+
+        <RadioButton
+            android:id="@+id/sentidoSalidaN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Norte" />
+
+        <RadioButton
+            android:id="@+id/sentidoSalidaC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Centro" />
+
+        <RadioButton
+            android:id="@+id/sentidoSalidaS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Sur" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/SentidoLlegadaUSAR"
+        android:layout_width="223dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewSectorLlegada2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSectorLlegada2">
+
+        <RadioButton
+            android:id="@+id/sentidoLlegadaN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Norte" />
+
+        <RadioButton
+            android:id="@+id/sentidoLlegadaC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Centro" />
+
+        <RadioButton
+            android:id="@+id/sentidoLlegadaS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Sur" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
