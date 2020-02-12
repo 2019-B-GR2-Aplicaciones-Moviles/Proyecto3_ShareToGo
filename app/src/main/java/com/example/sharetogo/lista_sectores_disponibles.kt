@@ -1,12 +1,16 @@
 package com.example.sharetogo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.sharetogo.models.Rutas
+import com.example.sharetogo.models.Usuarios
 import java.util.ArrayList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -15,6 +19,7 @@ import com.google.firebase.database.*
 class lista_sectores_disponibles : AppCompatActivity() {
 
     lateinit var items: java.util.ArrayList<String>
+    lateinit var rutasId: java.util.ArrayList<String>
     lateinit var adp: ArrayAdapter<String>
     lateinit var list: ListView
 
@@ -36,21 +41,37 @@ class lista_sectores_disponibles : AppCompatActivity() {
         }
 
         database = FirebaseDatabase.getInstance().reference
-        items= ArrayList()
+        items = ArrayList()
+        rutasId = ArrayList()
 
         val rutasReference = FirebaseDatabase.getInstance().reference
             .child("rutas")
 
+        adp = ArrayAdapter(
+            baseContext,
+            android.R.layout.simple_list_item_1,
+            items
+        )
+        list = findViewById(R.id.listaSectores_View)
+        list.adapter = adp
 
         val rutasListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
+                items.clear()
                 for (rutaSnapshot in dataSnapshot.children) {
                     rutaSnapshot.children.forEach {
+                        rutasId.add(it.key.toString())
                         val rutas = it.getValue(Rutas::class.java)
-                        if(rutas?.sentido.equals(sentido)){
-                            items.add(rutas?.sector_ini.toString())
+                        if (rutas?.sentido.equals(sentido)) {
+                            items.add(
+                                rutas?.sector_ini.toString() + " - " +
+                                        rutas?.sector_fin.toString() +
+                                        "    [ " + rutas?.pasajeros.toString() +
+                                        " / " + rutas?.capacidad.toString() +
+                                        " ] "
+                            )
                             Log.d("mensaje", rutas?.sector_ini.toString())
+                            adp.notifyDataSetChanged()
                         }
 
                     }
@@ -63,21 +84,19 @@ class lista_sectores_disponibles : AppCompatActivity() {
             }
         }
 
+        escucharClickLista()
         rutasReference.addValueEventListener(rutasListener)
-
-        adp = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
-        list = findViewById(R.id.listaSectores_View)
-        list.adapter = adp
-
-
-        Log.d("ITEMS", items.toString())
-
-        adp.notifyDataSetChanged()
-
-//        sentidoLlegada = bundle?.getString("sentidoLlegada")
-//        sentidoSalida = bundle?.getString("sentidoSalida")
-
     }
 
+
+    fun escucharClickLista() {
+
+        list.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                val intent = Intent(this, SeleccionRuta::class.java)
+                intent.putExtra("rutasId", rutasId[position])
+                startActivity(intent)
+            }
+    }
 
 }
