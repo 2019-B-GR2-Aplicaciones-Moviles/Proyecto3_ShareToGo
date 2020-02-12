@@ -78,11 +78,11 @@ class signIn : AppCompatActivity() {
     }
 
     fun onClickButtonSignIn( view: View) {
-        val intent = Intent(this, pantallaPrincipal::class.java)
-        startActivity(intent)
-//        if (validateData()) {
-//            signIn(email, password)
-//        }
+//        val intent = Intent(this, pantallaPrincipal::class.java)
+//        startActivity(intent)
+        if (validateData()) {
+            signIn(email, password)
+        }
     }
 
     private fun writeNewUser(userId: String, name: String, email: String, phone: String, password: String) {
@@ -135,6 +135,7 @@ class signIn : AppCompatActivity() {
                 currentUser = auth.currentUser
                 val editor = sharedPreferences.edit()
                 editor.putString("userid",currentUser?.uid)
+                editor.commit()
 
                 val intent = Intent(baseContext, pantallaPrincipal::class.java)
                 startActivity(intent)

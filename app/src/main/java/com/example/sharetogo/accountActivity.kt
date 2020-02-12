@@ -30,8 +30,8 @@ class accountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_account)
 
         sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
-//        userId = sharedPreferences.getString("userid", null).toString()
-        userId = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
+        userId = sharedPreferences.getString("userid", null).toString()
+//        userId = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
         databaseReference = FirebaseDatabase.getInstance().reference

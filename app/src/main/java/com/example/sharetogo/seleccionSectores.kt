@@ -145,9 +145,13 @@ class seleccionSectores : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.item_menu_home -> {
+                val intent = Intent(this, pantallaPrincipal::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_logout -> {

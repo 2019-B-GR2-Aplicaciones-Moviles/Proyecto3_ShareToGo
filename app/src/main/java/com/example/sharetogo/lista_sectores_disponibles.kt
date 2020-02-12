@@ -4,22 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.example.sharetogo.models.Rutas
-import com.example.sharetogo.models.Usuarios
 import java.util.ArrayList
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 class lista_sectores_disponibles : AppCompatActivity() {
 
-    lateinit var items: java.util.ArrayList<String>
-    lateinit var rutasId: java.util.ArrayList<String>
+    lateinit var items: ArrayList<String>
+    lateinit var rutasId: ArrayList<String>
     lateinit var adp: ArrayAdapter<String>
     lateinit var list: ListView
 
@@ -58,11 +57,12 @@ class lista_sectores_disponibles : AppCompatActivity() {
         val rutasListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 items.clear()
+                rutasId.clear()
                 for (rutaSnapshot in dataSnapshot.children) {
                     rutaSnapshot.children.forEach {
-                        rutasId.add(it.key.toString())
                         val rutas = it.getValue(Rutas::class.java)
                         if (rutas?.sentido.equals(sentido)) {
+                            rutasId.add(it.key.toString())
                             items.add(
                                 rutas?.sector_ini.toString() + " - " +
                                         rutas?.sector_fin.toString() +
@@ -88,6 +88,37 @@ class lista_sectores_disponibles : AppCompatActivity() {
         rutasReference.addValueEventListener(rutasListener)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.item_menu_home -> {
+                val intent = Intent(this, pantallaPrincipal::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.item_menu_logout -> {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     fun escucharClickLista() {
 

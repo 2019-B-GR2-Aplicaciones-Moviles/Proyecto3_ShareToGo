@@ -1,7 +1,9 @@
 package com.example.sharetogo
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -37,14 +39,19 @@ class CompartirResumen : AppCompatActivity() {
     lateinit var  adp: ArrayAdapter<String>
     lateinit var list: ListView
     lateinit var rutas:Rutas
+    private lateinit var userID: String
 
     lateinit var dataRef:DatabaseReference
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compartir_resumen)
+
         dataRef=FirebaseDatabase.getInstance().reference
+        sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
+        userID = sharedPreferences.getString("userid", null).toString()
 
         items=ArrayList<String>()
         adp = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items)
@@ -75,7 +82,7 @@ class CompartirResumen : AppCompatActivity() {
             .child("hola")
             .push().key
 
-        rutas = Rutas(key,items1!!,pasajeros?.toInt()!!,color!!,true,hora!!,modelo!!,0,placa!!
+        rutas = Rutas(key,items1!!,pasajeros?.toInt()!!,color!!,true,hora!!,marca!!+" "+modelo!!,0,placa!!
         ,sectorLlegada!!,sectorSalida!!,sentidoSalida!!.substring(0,1)+"-"+sentidoLlegada!!.substring(0,1))
 
         //Toast.makeText(this, lista?.get(0), Toast.LENGTH_SHORT).show()
@@ -110,7 +117,7 @@ class CompartirResumen : AppCompatActivity() {
     }
 
     fun registrarRuta(){
-        dataRef.child("rutas").child("hola").child(rutas.id.toString()) //id del usuario es hola
+        dataRef.child("rutas").child(userID).child(rutas.id.toString()) //id del usuario es hola
             .setValue(rutas)
             .addOnCompleteListener(this){
                 task ->
@@ -148,9 +155,13 @@ class CompartirResumen : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.item_menu_home -> {
+                val intent = Intent(this, pantallaPrincipal::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_logout -> {

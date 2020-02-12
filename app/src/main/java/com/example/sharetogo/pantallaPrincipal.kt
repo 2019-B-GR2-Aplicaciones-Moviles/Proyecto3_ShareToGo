@@ -1,6 +1,8 @@
 package com.example.sharetogo
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,12 +14,18 @@ import com.google.firebase.auth.FirebaseUser
 class pantallaPrincipal : AppCompatActivity() {
 
     var user: FirebaseUser? = null
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_principal)
 
         user = FirebaseAuth.getInstance().currentUser
+        sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
+
+        val editor = sharedPreferences.edit()
+        editor.putString("userid",user?.uid)
+        editor.commit()
 
     }
 
@@ -63,6 +71,11 @@ class pantallaPrincipal : AppCompatActivity() {
 
     fun onClickButtonMap (view: View) {
         val intent = Intent(this, Mapa::class.java)
+        startActivity(intent)
+    }
+
+    fun onClickInfoList (view: View) {
+        val intent = Intent(this, InfoList::class.java)
         startActivity(intent)
     }
 }

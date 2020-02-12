@@ -22,9 +22,23 @@
         <activity android:name=".AdministradorActivity">
 
         </activity>
-        <activity android:name=".CompartirResumen"></activity>
-        <activity android:name=".lista_sectores_disponibles"></activity>
-        <activity android:name=".MenuRegistroSentido"></activity>
+        <activity android:name=".CompartirResumen">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Publicacion" />
+        </activity>
+        <activity android:name=".lista_sectores_disponibles">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SeleccionSectoresUsar" />
+        </activity>
+        <activity android:name=".MenuRegistroSentido">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".seleccionSectores" />
+        </activity>
         <activity android:name=".accountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -84,17 +98,17 @@
         </activity>
         <activity
             android:name=".accionEjecutada"
-            android:parentActivityName=".Contactos">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Contactos" />
-        </activity>
-        <activity
-            android:name=".Contactos"
             android:parentActivityName=".SeleccionRuta">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SeleccionRuta" />
+        </activity>
+        <activity
+            android:name=".InfoList"
+            android:parentActivityName=".pantallaPrincipal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pantallaPrincipal" />
         </activity>
         <activity
             android:name=".SeleccionRuta"

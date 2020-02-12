@@ -99,7 +99,6 @@ class accionEjecutada : AppCompatActivity() {
 
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -112,17 +111,20 @@ class accionEjecutada : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.item_menu_home -> {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, pantallaPrincipal::class.java)
                 startActivity(intent)
                 true
             }
             R.id.item_menu_account -> {
+                val intent = Intent(this, accountActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.item_menu_logout -> {
-                auth.signOut()
+                FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
