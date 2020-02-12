@@ -1,9 +1,15 @@
 package com.example.sharetogo
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.sharetogo.models.Usuarios
 import com.facebook.CallbackManager
@@ -11,7 +17,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.activity_sign_up.editTextEmail
+import kotlinx.android.synthetic.main.activity_sign_up.editTextPassword
 
 class signIn : AppCompatActivity() {
 
@@ -21,6 +30,9 @@ class signIn : AppCompatActivity() {
     private lateinit var callbackManager: CallbackManager
     private var msgError : String? = ""
     private var user : Usuarios? = null
+    private lateinit var email: String
+    private lateinit var password: String
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +41,31 @@ class signIn : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
         databaseRef = FirebaseDatabase.getInstance().reference
+        sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
+
+        editTextSignInEmail.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                email = s.toString()
+                when {
+                    !s.matches(Regex("^[^@]+@[^@]+\\.[a-zA-Z]{2,}\$")) -> {
+                        editTextSignInEmail.error = "Correo no valido"
+                    }
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+        })
+
+        editTextSignInPassword.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                password = s.toString()
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
+        })
+
     }
 
     public override fun onStart() {
@@ -41,9 +78,11 @@ class signIn : AppCompatActivity() {
     }
 
     fun onClickButtonSignIn( view: View) {
-
         val intent = Intent(this, pantallaPrincipal::class.java)
         startActivity(intent)
+//        if (validateData()) {
+//            signIn(email, password)
+//        }
     }
 
     private fun writeNewUser(userId: String, name: String, email: String, phone: String, password: String) {
@@ -63,9 +102,9 @@ class signIn : AppCompatActivity() {
 
     private fun validateData() : Boolean{
         var result = false
+        msgError = ""
 
-
-        if (editTextEmail.text.isEmpty() || editTextPassword.text.isEmpty()) {
+        if (editTextSignInEmail.text.isEmpty() || editTextSignInPassword.text.isEmpty()) {
             msgError = "Hay campos vacios"
         }
 
@@ -86,5 +125,26 @@ class signIn : AppCompatActivity() {
 
         val dialog: AlertDialog? = builder?.create()
         dialog?.show()
+    }
+
+    private fun signIn(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) {
+            task ->
+            if (task.isSuccessful) {
+                currentUser = auth.currentUser
+                val editor = sharedPreferences.edit()
+                editor.putString("userid",currentUser?.uid)
+
+                val intent = Intent(baseContext, pantallaPrincipal::class.java)
+                startActivity(intent)
+            } else {
+                Log.d(TAG, "signInWithEmail:failure->"+task.exception?.message)
+                showDialogMessage("Correo o contraseña incorrectos", "Oops")
+            }
+        }
+    }
+    companion object {
+        private const val TAG = "EmailPassword"
     }
 }

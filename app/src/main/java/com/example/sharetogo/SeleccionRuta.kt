@@ -1,6 +1,8 @@
 package com.example.sharetogo
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -23,6 +25,7 @@ class SeleccionRuta : AppCompatActivity() {
     private var currentUser: FirebaseUser? = null
     lateinit var rutasID : String
     lateinit var user_rutasID : String
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +34,10 @@ class SeleccionRuta : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser
+        sharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE)
 
         user_rutasID = "mJK9ParRAbX3fXLxNXTVE18TzTY2"
+//        user_rutasID = sharedPreferences.getString("userid","No existe la referencia").toString()
         rutasID = "1234567890abcdefghijklmnopqr" // get to putextra
 
         databaseReference = FirebaseDatabase.getInstance().reference
